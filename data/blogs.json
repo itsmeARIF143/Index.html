@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "title": "Pre-Season Training Camp Started",
+    "date": "2026-01-10",
+    "summary": "৪ সপ্তাহের স্কিল এবং ফিটনেস ক্যাম্প শুরু হয়েছে।",
+    "filePath": "pages/blogs/post-1.html"
+  },
+  {
+    "id": 2,
+    "title": "Community Friendly Match Announced",
+    "date": "2026-01-15",
+    "summary": "স্থানীয় দুই ক্লাবের মধ্যে ফ্রেন্ডলি ম্যাচ আয়োজন করা হবে।",
+    "filePath": "pages/blogs/post-1.html"
+  }
+]

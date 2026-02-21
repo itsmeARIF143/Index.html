@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elite Sports Club | Home</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- হেডার: লোগো, ক্লাবের নাম এবং নেভিগেশন মেনু -->
+    <header class="site-header glass">
+      <div class="container header-wrap">
+        <a class="brand" href="index.html">
+          <div class="logo">ESC</div>
+          <div>
+            <h1>Elite Sports Club</h1>
+            <p class="subtitle">Play with Pride</p>
+          </div>
+        </a>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+        <nav id="mainNav" class="nav-links">
+          <a href="index.html" class="active">Home</a>
+          <a href="pages/about/about.html">About</a>
+          <a href="pages/blogs/blogs.html">Blog/News</a>
+          <a href="pages/events/events.html">Events</a>
+          <a href="pages/contact.html">Contact</a>
+          <a href="pages/admin/login.html">Admin</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- হিরো সেকশন: ক্লাব পরিচিতি ও ২ লাইনের স্লোগান -->
+      <section class="hero">
+        <div class="container hero-inner fade-in">
+          <h2>Welcome to Elite Sports Club</h2>
+          <p>শৃঙ্খলা, বন্ধুত্ব এবং প্রতিযোগিতার মাধ্যমে আমরা এগিয়ে যাই।</p>
+          <p>আমাদের লক্ষ্য: প্রতিটি সদস্যের স্কিল ও স্পোর্টসম্যানশিপ উন্নয়ন।</p>
+          <a class="btn" href="pages/about/about.html">Explore Club</a>
+        </div>
+      </section>
+
+      <!-- সর্বশেষ ব্লগ: JSON থেকে ডাইনামিকভাবে সর্বশেষ ৩টি পোস্ট দেখানো হবে -->
+      <section class="section container">
+        <div class="section-title-row">
+          <h3>Latest Blog</h3>
+          <a href="pages/blogs/blogs.html">See all</a>
+        </div>
+        <div id="latestBlogs" class="card-grid"></div>
+      </section>
+
+      <!-- আসন্ন টুর্নামেন্ট: না থাকলে “No Tournament Available” -->
+      <section class="section container">
+        <div class="section-title-row">
+          <h3>Upcoming Tournament / Events</h3>
+          <a href="pages/events/events.html">View schedule</a>
+        </div>
+        <div id="upcomingEvents" class="card-grid"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <p>© <span id="year"></span> Elite Sports Club</p>
+        <p>Made for Zero-Cost Hosting (Netlify / InfinityFree)</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>

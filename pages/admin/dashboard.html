@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+  </head>
+  <body>
+    <!-- অ্যাডমিন ড্যাশবোর্ড: ব্লগ, টুর্নামেন্ট, কমিটি ডাটা ম্যানেজ -->
+    <main class="container section">
+      <div class="section-title-row">
+        <h2>Dashboard</h2>
+        <button class="btn danger" id="logoutBtn">Logout</button>
+      </div>
+
+      <section class="card section">
+        <h3>Add Blog</h3>
+        <form id="blogAdminForm" class="admin-grid">
+          <input id="blogTitle" placeholder="Title" required />
+          <input id="blogDate" type="date" required />
+          <input id="blogSummary" placeholder="Summary" required />
+          <input id="blogFile" placeholder="HTML file path e.g. pages/blogs/post-3.html" required />
+          <button class="btn" type="submit">Save Blog</button>
+        </form>
+      </section>
+
+      <section class="card section">
+        <h3>Add Tournament</h3>
+        <form id="eventAdminForm" class="admin-grid">
+          <input id="eventName" placeholder="Tournament Name" required />
+          <input id="eventSport" placeholder="Sport" required />
+          <input id="eventDate" type="date" required />
+          <input id="eventTeams" placeholder="Teams e.g. Team A vs Team B" required />
+          <input id="eventWinner" placeholder="Winner" />
+          <button class="btn" type="submit">Save Tournament</button>
+        </form>
+      </section>
+
+      <section class="card section">
+        <h3>Add Committee Member</h3>
+        <form id="memberAdminForm" class="admin-grid">
+          <input id="memberName" placeholder="Name" required />
+          <input id="memberRole" placeholder="Role" required />
+          <input id="memberContact" placeholder="Contact" required />
+          <input id="memberPhoto" placeholder="Photo URL" required />
+          <button class="btn" type="submit">Save Member</button>
+        </form>
+      </section>
+
+      <p class="note">ডেমো ভার্সন localStorage-এ data সংরক্ষণ করে। Production-এ Serverless Function/API ব্যবহার করুন।</p>
+    </main>
+    <script src="../../assets/js/admin.js"></script>
+  </body>
+</html>

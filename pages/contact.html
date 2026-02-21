@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Elite Sports Club</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body>
+    <!-- কন্টাক্ট ফর্ম: JS validation + Netlify compatible attributes -->
+    <main class="container section">
+      <h2>Contact Us</h2>
+      <form
+        id="contactForm"
+        class="card"
+        name="contact"
+        method="POST"
+        data-netlify="true"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <div class="field"><label>নাম</label><input id="name" name="name" type="text" required /></div>
+        <div class="field"><label>ইমেইল</label><input id="email" name="email" type="email" required /></div>
+        <div class="field"><label>মেসেজ</label><textarea id="message" name="message" required></textarea></div>
+        <button type="submit" class="btn">Send Message</button>
+        <p id="contactMsg"></p>
+      </form>
+      <p class="note">Google Form ব্যবহার করতে চাইলে form action-এ আপনার form URL দিন।</p>
+    </main>
+    <script src="../assets/js/script.js"></script>
+  </body>
+</html>
