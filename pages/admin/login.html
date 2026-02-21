@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+  </head>
+  <body>
+    <!-- ডেমো অ্যাডমিন লগইন: localStorage token সেট করে -->
+    <main class="container section">
+      <h2>Admin Login (Demo)</h2>
+      <form id="loginForm" class="card">
+        <div class="field"><label>Username</label><input id="adminUser" required /></div>
+        <div class="field"><label>Password</label><input id="adminPass" type="password" required /></div>
+        <button class="btn" type="submit">Login</button>
+        <p class="note">ডেমো ক্রেডেনশিয়াল: admin / 1234</p>
+        <p id="loginMsg"></p>
+      </form>
+    </main>
+    <script src="../../assets/js/admin.js"></script>
+  </body>
+</html>
