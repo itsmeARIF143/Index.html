@@ -1,72 +1,194 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Elite Sports Club | Home</title>
+    <title>Md. Ariful Islam | Frontend Developer Portfolio</title>
+    <meta
+      name="description"
+      content="Personal portfolio of Md. Ariful Islam, showcasing frontend development, design, writing, education, and projects with modern interactive UI."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <!-- হেডার: লোগো, ক্লাবের নাম এবং নেভিগেশন মেনু -->
-    <header class="site-header glass">
-      <div class="container header-wrap">
-        <a class="brand" href="index.html">
-          <div class="logo">ESC</div>
-          <div>
-            <h1>Elite Sports Club</h1>
-            <p class="subtitle">Play with Pride</p>
-          </div>
-        </a>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
 
-        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
-        <nav id="mainNav" class="nav-links">
-          <a href="index.html" class="active">Home</a>
-          <a href="pages/about/about.html">About</a>
-          <a href="pages/blogs/blogs.html">Blog/News</a>
-          <a href="pages/events/events.html">Events</a>
-          <a href="pages/contact.html">Contact</a>
-          <a href="pages/admin/login.html">Admin</a>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="#home">Md. Ariful Islam</a>
+        <button id="menuBtn" class="menu-btn" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <nav id="mainNav" class="main-nav">
+          <a href="#home">Home</a>
+          <a href="#skills">Skills</a>
+          <a href="#education">Education</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
         </nav>
       </div>
     </header>
 
     <main>
-      <!-- হিরো সেকশন: ক্লাব পরিচিতি ও ২ লাইনের স্লোগান -->
-      <section class="hero">
-        <div class="container hero-inner fade-in">
-          <h2>Welcome to Elite Sports Club</h2>
-          <p>শৃঙ্খলা, বন্ধুত্ব এবং প্রতিযোগিতার মাধ্যমে আমরা এগিয়ে যাই।</p>
-          <p>আমাদের লক্ষ্য: প্রতিটি সদস্যের স্কিল ও স্পোর্টসম্যানশিপ উন্নয়ন।</p>
-          <a class="btn" href="pages/about/about.html">Explore Club</a>
+      <section id="home" class="hero section">
+        <div class="container hero-grid">
+          <div class="hero-content" data-aos="fade-up">
+            <p class="eyebrow animate__animated animate__fadeInDown">Hello, I'm Md. Arifu</p>
+            <h1>Frontend Developer & Digital Creative</h1>
+            <p class="typing-wrap">
+              <span id="typingText" class="typing-text"></span><span class="cursor">|</span>
+            </p>
+            <p class="intro">
+              Hi, I'm Md. Ariful Islam— a passionate learner interested in technology, web development,
+              and digital creativity.
+            </p>
+            <a href="#projects" class="btn-primary">Explore My Work</a>
+          </div>
+
+          <div class="profile-card" data-aos="zoom-in" data-aos-delay="150">
+            <img
+              src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=700&q=80"
+              alt="Portrait avatar for Md. Ariful Islam"
+            />
+            <div>
+              <h2>Md. Ariful Islam</h2>
+              <p>Frontend Developer • Graphics Designer • Script & Content Writer</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- সর্বশেষ ব্লগ: JSON থেকে ডাইনামিকভাবে সর্বশেষ ৩টি পোস্ট দেখানো হবে -->
-      <section class="section container">
-        <div class="section-title-row">
-          <h3>Latest Blog</h3>
-          <a href="pages/blogs/blogs.html">See all</a>
+      <section id="skills" class="section">
+        <div class="container">
+          <h2 class="section-title" data-aos="fade-right">Skills</h2>
+          <div class="skills-grid">
+            <article class="skill-card" data-aos="fade-up" data-tooltip="Building modern and responsive web interfaces.">
+              <div class="skill-head"><h3>Web Frontend Development</h3><span>88%</span></div>
+              <div class="progress"><span data-level="88"></span></div>
+            </article>
+            <article class="skill-card" data-aos="fade-up" data-aos-delay="60" data-tooltip="Semantic page structure and accessibility.">
+              <div class="skill-head"><h3>HTML</h3><span>92%</span></div>
+              <div class="progress"><span data-level="92"></span></div>
+            </article>
+            <article class="skill-card" data-aos="fade-up" data-aos-delay="100" data-tooltip="Modern layouts, responsive design, and animations.">
+              <div class="skill-head"><h3>CSS</h3><span>90%</span></div>
+              <div class="progress"><span data-level="90"></span></div>
+            </article>
+            <article class="skill-card" data-aos="fade-up" data-aos-delay="140" data-tooltip="Interactive UI and frontend logic.">
+              <div class="skill-head"><h3>JavaScript</h3><span>82%</span></div>
+              <div class="progress"><span data-level="82"></span></div>
+            </article>
+            <article class="skill-card" data-aos="fade-up" data-aos-delay="180" data-tooltip="Document creation and formatting.">
+              <div class="skill-head"><h3>MS Word</h3><span>85%</span></div>
+              <div class="progress"><span data-level="85"></span></div>
+            </article>
+            <article class="skill-card" data-aos="fade-up" data-aos-delay="220" data-tooltip="Spreadsheets, formulas, and reporting basics.">
+              <div class="skill-head"><h3>MS Excel</h3><span>76%</span></div>
+              <div class="progress"><span data-level="76"></span></div>
+            </article>
+            <article class="skill-card" data-aos="fade-up" data-aos-delay="260" data-tooltip="Daily digital productivity and technical confidence.">
+              <div class="skill-head"><h3>Basic Computer Skills</h3><span>93%</span></div>
+              <div class="progress"><span data-level="93"></span></div>
+            </article>
+          </div>
         </div>
-        <div id="latestBlogs" class="card-grid"></div>
       </section>
 
-      <!-- আসন্ন টুর্নামেন্ট: না থাকলে “No Tournament Available” -->
-      <section class="section container">
-        <div class="section-title-row">
-          <h3>Upcoming Tournament / Events</h3>
-          <a href="pages/events/events.html">View schedule</a>
+      <section id="education" class="section">
+        <div class="container">
+          <h2 class="section-title" data-aos="fade-right">Education</h2>
+          <div class="timeline">
+            <article class="timeline-card" data-aos="fade-left">
+              <span class="timeline-dot"></span>
+              <h3>SSC Completed</h3>
+              <p>Successfully completed Secondary School Certificate with strong academic foundation.</p>
+            </article>
+            <article class="timeline-card" data-aos="fade-left" data-aos-delay="120">
+              <span class="timeline-dot"></span>
+              <h3>Currently Studying BA (1st Year)</h3>
+              <p>Continuing higher education while growing skills in web development and digital creativity.</p>
+            </article>
+          </div>
         </div>
-        <div id="upcomingEvents" class="card-grid"></div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="container">
+          <h2 class="section-title" data-aos="fade-right">Projects</h2>
+          <div class="project-grid">
+            <article class="project-card" data-aos="zoom-in-up">
+              <h3>Portfolio Landing Page</h3>
+              <p>A modern personal homepage focused on branding and responsive UI.</p>
+              <p class="meta">Tech: HTML, CSS, JavaScript</p>
+              <a class="btn-ghost" href="#">View</a>
+            </article>
+            <article class="project-card" data-aos="zoom-in-up" data-aos-delay="90">
+              <h3>Creative Poster Collection</h3>
+              <p>Graphics design works for social campaigns and digital promotions.</p>
+              <p class="meta">Tech: Photoshop, Canva</p>
+              <a class="btn-ghost" href="#">View</a>
+            </article>
+            <article class="project-card" data-aos="zoom-in-up" data-aos-delay="160">
+              <h3>Content Writing Showcase</h3>
+              <p>Curated scripts and articles for blogs, social media, and storytelling.</p>
+              <p class="meta">Tech: MS Word, Research Tools</p>
+              <a class="btn-ghost" href="#">View</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="container">
+          <h2 class="section-title" data-aos="fade-right">Contact</h2>
+          <div class="contact-grid">
+            <form id="contactForm" class="contact-form" data-aos="fade-up">
+              <label>Name<input type="text" id="name" required /></label>
+              <label>Email<input type="email" id="email" required /></label>
+              <label>Message<textarea id="message" required></textarea></label>
+              <button type="submit" class="btn-primary">Send Message</button>
+              <p id="formMsg" class="form-msg" aria-live="polite"></p>
+            </form>
+            <iframe
+              data-aos="fade-up"
+              data-aos-delay="120"
+              title="Google map location"
+              src="https://www.google.com/maps?q=Dhaka,Bangladesh&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-wrap">
-        <p>© <span id="year"></span> Elite Sports Club</p>
-        <p>Made for Zero-Cost Hosting (Netlify / InfinityFree)</p>
+        <p>© <span id="year"></span> Md. Ariful Islam. All rights reserved.</p>
+        <p>Built with passion & modern web technologies.</p>
       </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="assets/js/script.js"></script>
   </body>
 </html>
