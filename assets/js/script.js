@@ -1,99 +1,96 @@
 const byId = (id) => document.getElementById(id);
 
-// সাধারণ fetch helper: localStorage override থাকলে সেটি আগে ব্যবহার করবে
-async function loadData(key, fallbackPath) {
-  const saved = localStorage.getItem(key);
-  if (saved) return JSON.parse(saved);
-  const res = await fetch(fallbackPath);
-  return res.json();
+function setupMenu() {
+  const menuBtn = byId("menuBtn");
+  const mainNav = byId("mainNav");
+  if (!menuBtn || !mainNav) return;
+  menuBtn.addEventListener("click", () => mainNav.classList.toggle("open"));
 }
 
-function cardTemplate(title, body, extra = "") {
-  return `<article class="card"><h4>${title}</h4><p>${body}</p>${extra}</article>`;
-}
+function setupTypingAnimation() {
+  const typingText = byId("typingText");
+  if (!typingText) return;
 
-async function renderLatestBlogs() {
-  const wrap = byId("latestBlogs") || byId("blogList");
-  if (!wrap) return;
-  const blogs = await loadData("blogs", "../../data/blogs.json").catch(() => loadData("blogs", "data/blogs.json"));
-  const list = wrap.id === "latestBlogs" ? blogs.slice(0, 3) : blogs;
-  wrap.innerHTML = list
-    .map(
-      (b) =>
-        cardTemplate(
-          b.title,
-          `${b.date} • ${b.summary}`,
-          `<a class="btn" href="${wrap.id === "latestBlogs" ? b.filePath : "../" + b.filePath.split("pages/")[1]}">Read Article</a>`
-        )
-    )
-    .join("");
-}
+  const roles = [
+    "Frontend Developer",
+    "Graphics Design",
+    "Script Writer",
+    "Content Writer",
+    "Data Entry"
+  ];
 
-async function renderEvents() {
-  const wrap = byId("upcomingEvents") || byId("eventList");
-  if (!wrap) return;
-  const events = await loadData("tournaments", "../../data/tournaments.json").catch(() => loadData("tournaments", "data/tournaments.json"));
-  if (!events.length) {
-    wrap.innerHTML = cardTemplate("No Tournament Available", "বর্তমানে কোনো টুর্নামেন্ট নির্ধারিত নেই।");
-    return;
-  }
-  wrap.innerHTML = events
-    .map((e) => cardTemplate(e.name, `${e.sport} | ${e.date} | ${e.teams} | Winner: ${e.winner || "TBD"}`))
-    .join("");
-}
+  let roleIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
 
-async function renderMembers() {
-  const wrap = byId("memberList");
-  if (!wrap) return;
-  const members = await loadData("members", "../../data/members.json");
-  wrap.innerHTML = members
-    .map(
-      (m) => `<article class="card"><img src="${m.photo}" alt="${m.name}" style="width:100%;border-radius:10px"/>
-      <h4>${m.name}</h4><p>${m.role}</p><p>${m.contact}</p></article>`
-    )
-    .join("");
-}
+  const type = () => {
+    const current = roles[roleIndex];
+    typingText.textContent = current.slice(0, charIndex);
 
-function setupContactValidation() {
-  const form = byId("contactForm");
-  if (!form) return;
-  form.addEventListener("submit", (e) => {
-    const name = byId("name").value.trim();
-    const email = byId("email").value.trim();
-    const msg = byId("message").value.trim();
-    const box = byId("contactMsg");
-    if (!name || !/^\S+@\S+\.\S+$/.test(email) || msg.length < 10) {
-      e.preventDefault();
-      box.textContent = "সঠিক তথ্য দিন (মেসেজ কমপক্ষে ১০ অক্ষর)।";
-      box.style.color = "#f87171";
+    if (!deleting && charIndex < current.length) {
+      charIndex += 1;
+    } else if (deleting && charIndex > 0) {
+      charIndex -= 1;
+    } else if (!deleting && charIndex === current.length) {
+      deleting = true;
+      setTimeout(type, 1000);
       return;
+    } else {
+      deleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
     }
-    box.textContent = "Validation passed. Netlify/Google Form এ submit হবে।";
-    box.style.color = "#42d392";
+
+    setTimeout(type, deleting ? 55 : 95);
+  };
+
+  type();
+}
+
+function setupSkillBars() {
+  const bars = document.querySelectorAll(".progress span");
+  if (!bars.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const level = entry.target.getAttribute("data-level") || "0";
+          entry.target.style.width = `${level}%`;
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.4 }
+  );
+
+  bars.forEach((bar) => observer.observe(bar));
+}
+
+function setupContactForm() {
+  const contactForm = byId("contactForm");
+  const formMsg = byId("formMsg");
+  if (!contactForm || !formMsg) return;
+
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    formMsg.textContent = "Thank you! Your message has been sent successfully.";
+    formMsg.style.color = "#2cd4c4";
+    contactForm.reset();
   });
 }
 
-function setupMenu() {
-  const btn = byId("menuBtn");
-  const nav = byId("mainNav");
-  if (!btn || !nav) return;
-  btn.addEventListener("click", () => nav.classList.toggle("show"));
-}
-
-function setupEventRegistration() {
-  const form = byId("eventRegisterForm");
-  if (!form) return;
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    alert("Registration received (Demo)");
-    form.reset();
+function setupAos() {
+  if (typeof AOS === "undefined") return;
+  AOS.init({
+    duration: 750,
+    once: true,
+    easing: "ease-out-cubic"
   });
 }
 
 byId("year") && (byId("year").textContent = new Date().getFullYear());
 setupMenu();
-setupContactValidation();
-setupEventRegistration();
-renderLatestBlogs();
-renderEvents();
-renderMembers();
+setupTypingAnimation();
+setupSkillBars();
+setupContactForm();
+setupAos();
